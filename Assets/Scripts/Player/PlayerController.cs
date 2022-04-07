@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _angularSpeed;
 	[SerializeField] private float _jumpForce;
 	[SerializeField] private float _gravityForce;
+	[Space]
+	[SerializeField] private JoystickController _joystick;
 
 	private CharacterController _controller;
     private Animator _animator;
@@ -32,8 +34,8 @@ public class PlayerController : MonoBehaviour
 		if (_controller.isGrounded)
 		{
 			_moveVector = Vector3.zero;
-			_moveVector.x = Input.GetAxis("Horizontal");
-			_moveVector.z = Input.GetAxis("Vertical");
+			_moveVector.x = _joystick.Horizontal();
+			_moveVector.z = _joystick.Vertical();
 
 			_animator.SetFloat("Speed", (Mathf.Abs(_moveVector.x) + Mathf.Abs(_moveVector.z)) / 2);
 
