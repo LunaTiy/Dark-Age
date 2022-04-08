@@ -103,7 +103,8 @@ public class PlayerLogic
 		if (damage <= 0)
 			return;
 
-		HealthPoints -= damage;
+		int damageOnArmor = damage - Armor * 3;
+		HealthPoints -= damageOnArmor;
 
 		if (HealthPoints <= 0) Died?.Invoke();
 	}
