@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
 
 	private CharacterController _controller;
     private Animator _animator;
+	private PlayerBlastAround _playerBlast;
 
 	private Vector3 _moveVector;
 	private float _gravity;
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
 	{
 		_controller = GetComponent<CharacterController>();
 		_animator = GetComponent<Animator>();
+		_playerBlast = GetComponent<PlayerBlastAround>();
 	}
 
 	private void Update()
@@ -50,7 +52,10 @@ public class PlayerController : MonoBehaviour
 		}
 
 		_moveVector.y = _gravity;
-		_controller.Move(_moveVector * Time.deltaTime);		
+
+		if (_playerBlast.isBlast) _moveVector = Vector3.zero;
+			
+		_controller.Move(_moveVector * Time.deltaTime);
 	}
 
 	private void Gravity()
