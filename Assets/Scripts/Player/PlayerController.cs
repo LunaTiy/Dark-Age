@@ -13,16 +13,17 @@ public class PlayerController : MonoBehaviour
 
 	private CharacterController _controller;
     private Animator _animator;
-	private PlayerBlastAround _playerBlast;
 
 	private Vector3 _moveVector;
 	private float _gravity;
+
+	private bool _canRun;
+	private float _elapsedTime;
 
 	private void Start()
 	{
 		_controller = GetComponent<CharacterController>();
 		_animator = GetComponent<Animator>();
-		_playerBlast = GetComponent<PlayerBlastAround>();
 	}
 
 	private void Update()
@@ -53,7 +54,11 @@ public class PlayerController : MonoBehaviour
 
 		_moveVector.y = _gravity;
 
-		if (_playerBlast.isBlast) _moveVector = Vector3.zero;
+		if (_elapsedTime > 0)
+		{
+			_elapsedTime -= Time.deltaTime;
+			_moveVector = Vector3.zero;
+		}
 			
 		_controller.Move(_moveVector * Time.deltaTime);
 	}
@@ -64,5 +69,10 @@ public class PlayerController : MonoBehaviour
 		else _gravity = -1f;
 
 		if (Input.GetKeyDown(KeyCode.Space) && _controller.isGrounded) _gravity = _jumpForce;
+	}
+
+	public void OnBlasted(float time)
+	{
+		_elapsedTime = time;
 	}
 }

@@ -20,7 +20,7 @@ public class PlayerLogic
 	public PlayerLogic()
 	{
 		MaxHealthPoints = 100;
-		HealthPoints = 100;
+		HealthPoints = MaxHealthPoints;
 		HpRegen = 1;
 
 		MaxManaPoints = 20;
@@ -73,8 +73,8 @@ public class PlayerLogic
 		get => _manaPoints;
 		set
 		{
-			if (value < _maxManaPoints && value >= 0) _manaPoints = value;
-			else _manaPoints = 0;
+			if (value <= _maxManaPoints) _manaPoints = value;
+			if (value < 0) _manaPoints = 0;
 		}
 	}
 

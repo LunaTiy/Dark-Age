@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CooldownBlast : MonoBehaviour
+public class Cooldown : MonoBehaviour
 {
-	[SerializeField] private PlayerBlastAround _playerBlast;
-
 	private Image _cooldownImage;
 	private float _remainingTime;
-	private float _timeBtwBlast;
+	private float _timeBtwAttack;
 
 	private void Start()
 	{
@@ -20,7 +18,7 @@ public class CooldownBlast : MonoBehaviour
 	{
 		if (_remainingTime > 0f)
 		{
-			_cooldownImage.fillAmount = (_remainingTime - _timeBtwBlast) / (0 - _timeBtwBlast);
+			_cooldownImage.fillAmount = (_remainingTime - _timeBtwAttack) / (0 - _timeBtwAttack);
 			_remainingTime -= Time.deltaTime;
 		}
 		else if(_remainingTime < 0)
@@ -30,9 +28,9 @@ public class CooldownBlast : MonoBehaviour
 		}
 	}
 
-	public void OnPlayerBlasted()
+	public void StartCooldown(float time)
 	{
-		_timeBtwBlast = _playerBlast.timeBtwBlast;
-		_remainingTime = _timeBtwBlast;
+		_timeBtwAttack = time;
+		_remainingTime = time;
 	}
 }

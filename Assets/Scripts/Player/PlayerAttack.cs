@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,11 +6,10 @@ using UnityEngine.Events;
 
 public class PlayerAttack : MonoBehaviour
 {
-	[SerializeField] private UnityEvent _attacked = new UnityEvent();
+	[SerializeField] private AttackEvent _attacked;
 
-	public float timeBtwAttack;
-	public float remainingTimeToAttack;
-	[HideInInspector] public bool isAttack;
+	[HideInInspector] public float timeBtwAttack;
+	[HideInInspector] public float remainingTimeToAttack;
 
 	private Animator _animator;
 
@@ -39,7 +39,6 @@ public class PlayerAttack : MonoBehaviour
 		else if (remainingTimeToAttack < 0)
 		{
 			remainingTimeToAttack = 0;
-			isAttack = false;
 		}
 	}
 
@@ -49,9 +48,8 @@ public class PlayerAttack : MonoBehaviour
 		{
 			_animator.SetTrigger("Attack");
 			remainingTimeToAttack = timeBtwAttack;
-			isAttack = true;
 
-			_attacked.Invoke();
+			_attacked.Invoke(timeBtwAttack);
 		}
 	}
 
@@ -60,3 +58,6 @@ public class PlayerAttack : MonoBehaviour
 		remainingTimeToAttack = 1f;
 	}
 }
+
+[Serializable]
+public class AttackEvent : UnityEvent<float> { }

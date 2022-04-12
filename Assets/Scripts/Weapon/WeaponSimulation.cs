@@ -5,19 +5,29 @@ using UnityEngine;
 public class WeaponSimulation : MonoBehaviour
 {
 	[HideInInspector] public Weapon weapon;
+	private float _attackTime;
 
-	private PlayerAttack _playerAttack;
-
-	private void Start()
+	private void Awake()
 	{
-		_playerAttack = gameObject.GetComponentInParent<PlayerAttack>();
 		weapon = new Weapon();
 	}
+
+	private void Update()
+	{
+		if (_attackTime > 0) _attackTime -= Time.deltaTime;
+		else if (_attackTime < 0) _attackTime = 0;
+	}
+
 	private void OnCollisionEnter(Collision collision)
 	{
-		if (_playerAttack.isAttack)
+		if (collision.gameObject.tag == "Enemy" && _attackTime > 0)
 		{
 			Debug.Log($"Hit damage {weapon.Damage}: {collision.gameObject.name}");
 		}
+	}
+
+	public void OnAttacked(float time)
+	{
+		_attackTime = time;
 	}
 }

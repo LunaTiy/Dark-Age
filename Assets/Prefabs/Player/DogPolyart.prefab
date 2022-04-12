@@ -1226,10 +1226,10 @@ GameObject:
   - component: {fileID: 2066896392029128874}
   - component: {fileID: 530482581}
   - component: {fileID: 1768889956}
+  - component: {fileID: 530482580}
   - component: {fileID: 1768889955}
   - component: {fileID: 1768889957}
   - component: {fileID: 530482579}
-  - component: {fileID: 530482580}
   m_Layer: 0
   m_Name: DogPolyart
   m_TagString: Player
@@ -1304,6 +1304,24 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.7, z: 0}
+--- !u!114 &530482580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066896392038628118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01c19a50824787c4eb7d56da8d983493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UpdatedHpBar:
+    m_PersistentCalls:
+      m_Calls: []
+  UpdatedMpBar:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1768889955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1403,20 +1421,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   isBlast: 0
+  manaForCast: 10
   timeBtwBlast: 1
   remainingTime: 0
---- !u!114 &530482580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2066896392038628118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01c19a50824787c4eb7d56da8d983493, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2066896392038628120
 GameObject:
   m_ObjectHideFlags: 0
