@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Cooldown : MonoBehaviour
+public class CooldownAttack : MonoBehaviour
 {
+	[SerializeField] private CharacterAttack _target;
+
 	private Image _cooldownImage;
 	private float _remainingTime;
 	private float _timeBtwAttack;
