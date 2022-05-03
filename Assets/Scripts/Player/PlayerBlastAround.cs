@@ -6,19 +6,17 @@ using UnityEngine.Events;
 
 public class PlayerBlastAround : MonoBehaviour
 {
-	[SerializeField] private BlastEvent _blastedCooldown;
+	[SerializeField] private UnityEvent<float> _blastedCooldown;
 	[SerializeField] private UnityEvent _blasted;
 
 	public int manaForCast = 10;
 	public float timeBtwBlast = 8f;
-    public float remainingTime;
-
-	private PlayerSimulationLogic _playerSimulation;
+    
+	private float remainingTime;
 	private Animator _animator;
 
 	private void Start()
 	{
-		_playerSimulation = GetComponent<PlayerSimulationLogic>();
 		_animator = GetComponent<Animator>();
 	}
 
@@ -45,10 +43,8 @@ public class PlayerBlastAround : MonoBehaviour
 
 	public void Blast()
 	{
-		if (remainingTime == 0 && _playerSimulation.player.ManaPoints >= manaForCast)
+		if (remainingTime == 0)
 		{
-			_playerSimulation.CastAbility(manaForCast);
-
 			_animator.SetTrigger("Blast");
 			remainingTime = timeBtwBlast;
 
@@ -62,6 +58,3 @@ public class PlayerBlastAround : MonoBehaviour
 		remainingTime = time;
 	}
 }
-
-[Serializable]
-public class BlastEvent : UnityEvent<float> { }
