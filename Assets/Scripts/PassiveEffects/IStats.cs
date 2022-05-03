@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-interface IWeapon
+interface IStats
 {
-	public int Damage { get; set; }
+	IEnumerable<Stat> GetStats();
 
-	public float TimeBtwAttack { get; set; }
+	void AddStat(Stat stat);
 
-	public int MakeDamage();
+	void RemoveStat(Stat.TypeStat type);
 }

@@ -14,7 +14,7 @@ public class Character : MonoBehaviour, ICharacter
 	[SerializeField] private int _maxMana = 20;
 	[SerializeField] private int _mana = 20;
 
-	private Stats _passiveSkills;
+	private Stats _passiveEffects;
 
 	public int MaxHealth
 	{
@@ -53,7 +53,7 @@ public class Character : MonoBehaviour, ICharacter
 
 	private void Start()
 	{
-		_passiveSkills = new Stats(new List<Stat> { 
+		_passiveEffects = new Stats(new List<Stat> { 
 			new Stat(1, Stat.TypeStat.HealthRegeneration),
 			new Stat(1, Stat.TypeStat.ManaRegeneration)
 		});
@@ -67,7 +67,7 @@ public class Character : MonoBehaviour, ICharacter
 
 		while (true)
 		{
-			foreach (Stat stat in _passiveSkills.GetStats())
+			foreach (Stat stat in _passiveEffects.GetStats())
 			{
 				if (stat.type == Stat.TypeStat.HealthRegeneration) Health += stat.value;
 				else if (stat.type == Stat.TypeStat.ManaRegeneration) Mana += stat.value;
