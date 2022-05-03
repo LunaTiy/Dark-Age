@@ -2,43 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : IWeapon
+public class Weapon : MonoBehaviour
 {
-    private int _damage;
-    private float _timeBtwAttack;
+	[SerializeField] private GameObject _holder;
 
-	public Weapon()
+    [SerializeField] private int _damage = 20;
+    [SerializeField] private float _attackSpeed = 2f;
+	[SerializeField] private float _swingTime = 0.5f;
+
+	public float AttackSpeed { get => _attackSpeed; }
+	public float SwingTime { get => _swingTime; }
+
+	private void OnEnable()
 	{
-        _damage = 10;
-        _timeBtwAttack = 0.4f;
+		_holder = GetComponentInParent<Character>().gameObject;
 	}
 
-	public Weapon(int damage, float timeBtwAttack)
+	private void OnTriggerEnter(Collider other)
 	{
-        Damage = damage;
-        TimeBtwAttack = timeBtwAttack;
-	}
-
-    public int Damage 
-    {
-        get => _damage;
-        set
-        {
-            if (value > 0)  _damage = value;
-        }
-    }
-
-    public float TimeBtwAttack
-	{
-        get => _timeBtwAttack;
-		set
+		if(other.TryGetComponent<Character>(out Character hitTarget) && _holder.GetComponent<CharacterAttack>().isAttack)
 		{
-            if (value >= 0) _timeBtwAttack = value; 
+			if (hitTarget.gameObject != _holder)
+			{
+				hitTarget.TakeDamage(_damage);
+			}
 		}
-	}
-
-    public int MakeDamage()
-	{
-        return Damage;
 	}
 }
