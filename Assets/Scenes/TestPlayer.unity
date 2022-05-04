@@ -1174,6 +1174,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 530482580, guid: 45288819fde2143449a96207b14db0bb, type: 3}
+      propertyPath: _takedDamage.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 530482580, guid: 45288819fde2143449a96207b14db0bb, type: 3}
+      propertyPath: _takedDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 530482580, guid: 45288819fde2143449a96207b14db0bb, type: 3}
+      propertyPath: _takedDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1311700032}
+    - target: {fileID: 530482580, guid: 45288819fde2143449a96207b14db0bb, type: 3}
+      propertyPath: _takedDamage.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 530482580, guid: 45288819fde2143449a96207b14db0bb, type: 3}
+      propertyPath: _takedDamage.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnDisableMovement
+      objectReference: {fileID: 0}
+    - target: {fileID: 530482580, guid: 45288819fde2143449a96207b14db0bb, type: 3}
+      propertyPath: _takedDamage.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 530482580, guid: 45288819fde2143449a96207b14db0bb, type: 3}
+      propertyPath: _takedDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 530482581, guid: 45288819fde2143449a96207b14db0bb, type: 3}
       propertyPath: m_Height
       value: 1.4593608
@@ -1815,6 +1843,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1264772173}
   m_CullTransparentMesh: 1
+--- !u!114 &1311700032 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1768889955, guid: 45288819fde2143449a96207b14db0bb, type: 3}
+  m_PrefabInstance: {fileID: 883073386}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8e6993c34b83940bf4cff6980ceb34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1346549668
 GameObject:
   m_ObjectHideFlags: 0
@@ -1849,10 +1888,10 @@ RectTransform:
   m_Father: {fileID: 135008873}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 325, y: -80}
-  m_SizeDelta: {x: 650, y: 160}
+  m_AnchorMin: {x: 0, y: 0.83368903}
+  m_AnchorMax: {x: 0.33900002, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1346549670
 MonoBehaviour:
@@ -2165,10 +2204,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01c19a50824787c4eb7d56da8d983493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
-  _health: 100
-  _maxMana: 20
-  _mana: 20
+  _takedDamage:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!54 &1577489280
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2737,10 +2775,10 @@ RectTransform:
   m_Father: {fileID: 1346549669}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 320, y: -40}
-  m_SizeDelta: {x: 600, y: 50}
+  m_AnchorMin: {x: 0.031, y: 0.599}
+  m_AnchorMax: {x: 0.952682, y: 0.905}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2141291016
 MonoBehaviour:

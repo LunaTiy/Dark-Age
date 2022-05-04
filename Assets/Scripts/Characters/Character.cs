@@ -20,7 +20,7 @@ public class Character : MonoBehaviour
 
 		_passives = new Stats(new List<Stat> { 
 			new StatHealthRegeneration(1, -1),
-			new StatManaRegeneration(1, -1)
+			new StatManaRegeneration(1, -1),
 		});
 
 		StartCoroutine(InfluencePassives());

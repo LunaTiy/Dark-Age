@@ -13,5 +13,7 @@ class StatHealthRegeneration : Stat
 	public override void Tick(Characteristics characteristics)
 	{
 		characteristics.Health += value;
+
+		if (ticks > 0) ticks--;
 	}
 }

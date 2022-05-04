@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
-class StatManaRegeneration : Stat
+
+class StatPoisoning : Stat
 {
-	public StatManaRegeneration(int value, int ticks)
+	public StatPoisoning(int value, int ticks)
 	{
 		this.value = value;
 		type = Type.HealthRegeneration;
@@ -12,7 +13,7 @@ class StatManaRegeneration : Stat
 
 	public override void Tick(Characteristics characteristics)
 	{
-		characteristics.Mana += value;
+		characteristics.Health -= value;
 
 		if (ticks > 0) ticks--;
 	}
