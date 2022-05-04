@@ -25,13 +25,24 @@ class Stats : IStats
 		_stats.Add(stat);
 	}
 
-	public void RemoveStat(Stat.TypeStat type)
+	public void RemoveStatsByType(Stat.Type type)
 	{
 		if (_stats.Count == 0)
 			return;
 
-		for(int i = 0; i < _stats.Count; i++)
+		for(int i = _stats.Count - 1; i >= 0; i--)
 			if (_stats[i].type == type)
 				_stats.RemoveAt(i);
+	}
+
+	public void Influence(Characteristics characteristics)
+	{
+		for(int i = _stats.Count - 1; i >= 0; i--)
+		{
+			_stats[i].Tick(characteristics);
+
+			if (_stats[i].ticks == 0)
+				_stats.RemoveAt(i);
+		}
 	}
 }
