@@ -17,8 +17,7 @@ public class PlayerController : MonoBehaviour
 	private Vector3 _moveVector;
 	private float _gravity;
 
-	private bool _canRun;
-	private float _elapsedTime;
+	private bool _canRun = true;
 
 	private void Start()
 	{
@@ -54,11 +53,8 @@ public class PlayerController : MonoBehaviour
 
 		_moveVector.y = _gravity;
 
-		if (_elapsedTime > 0)
-		{
-			_elapsedTime -= Time.deltaTime;
+		if (!_canRun)
 			_moveVector = Vector3.zero;
-		}
 			
 		_controller.Move(_moveVector * Time.deltaTime);
 	}
@@ -71,8 +67,14 @@ public class PlayerController : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Space) && _controller.isGrounded) _gravity = _jumpForce;
 	}
 
-	public void OnBlasted(float time)
+	private void EnableMovement()
 	{
-		_elapsedTime = time;
+		_canRun = true;
+	}
+
+	public void OnDisableMovement(float duration)
+	{
+		_canRun = false;
+		Invoke("EnableMovement", duration);
 	}
 }
