@@ -2,6 +2,9 @@ using System;
 
 public interface IInventory
 {
+	event Action<object, IInventoryItem, int> InventoryItemAdded;
+	event Action<object, Type, int> InventoryItemRemoved;
+
 	int Capacity { get; set; }
 	bool IsFull { get; }
 
@@ -11,7 +14,7 @@ public interface IInventory
 	IInventoryItem[] GetEquippedItems();
 	int GetItemAmount(Type itemType);
 
-	bool TryToAddItem(object sender, IInventoryItem item);
+	bool TryToAdd(object sender, IInventoryItem item);
 	void Remove(object sender, Type itemType, int amount = 1);
 	bool HasItem(Type itemType, out IInventoryItem item);
 }

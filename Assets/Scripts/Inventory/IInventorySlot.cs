@@ -2,7 +2,7 @@ using System;
 
 public interface IInventorySlot
 {
-    IInventoryItem item { get; set; }
+    IInventoryItem Item { get; }
     Type ItemType { get; }
     int Amount { get; }
     int Capacity { get; }
@@ -10,6 +10,6 @@ public interface IInventorySlot
     bool IsEmpty { get; }
     bool IsFull { get; }
 
-    bool TryToAddItem(IInventoryItem item);
-    bool Clear();
+    void SetItem(IInventoryItem item);
+    void Clear();
 }

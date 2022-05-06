@@ -7,5 +7,5 @@ public interface IInventoryItem
 	int MaxItemsInSlots { get; }
 	int Amount { get; set; }
 
-	IInventory Clone();
+	IInventoryItem Clone();
 }
