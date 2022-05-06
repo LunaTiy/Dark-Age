@@ -6,7 +6,7 @@ class InventorySlot : IInventorySlot
 
 	public Type ItemType => IsEmpty ? null : Item.Type;
 
-	public int Amount => IsEmpty ? 0 : Item.Amount;
+	public int Amount => IsEmpty ? 0 : Item.State.Amount;
 
 	public int Capacity { get; private set; }
 
@@ -20,16 +20,16 @@ class InventorySlot : IInventorySlot
 			return;
 
 		Capacity = 0;
-		Item.Amount = 0;
+		Item.State.Amount = 0;
 		Item = null;
 	}
 
 	public void SetItem(IInventoryItem item)
 	{
-		if(!IsEmpty)
+		if(!IsEmpty || item.State.Amount <= 0)
 			return;
 
 		Item = item;
-		Capacity = item.MaxItemsInSlots;
+		Capacity = item.Info.MaxItemInSlots;
 	}
 }
