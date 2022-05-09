@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class UISlot : MonoBehaviour, IDropHandler
 {
-	public void OnDrop(PointerEventData eventData)
+	public virtual void OnDrop(PointerEventData eventData)
 	{
 		Transform draggableItem = eventData.pointerDrag.transform;
 		draggableItem.SetParent(transform);
