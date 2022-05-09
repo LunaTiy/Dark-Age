@@ -12,7 +12,7 @@ class InventorySlot : IInventorySlot
 
 	public bool IsEmpty => Item == null;
 
-	public bool IsFull => Amount == Capacity;
+	public bool IsFull => !IsEmpty && Amount == Capacity;
 
 	public void Clear()
 	{

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-class Inventory : IInventory
+public class Inventory : IInventory
 {
 	public event Action<object, IInventoryItem, int> OnInventoryItemAdded;
 	public event Action<object, Type, int> OnInventoryItemRemoved;
