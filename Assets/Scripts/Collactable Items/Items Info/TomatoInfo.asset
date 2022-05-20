@@ -16,4 +16,4 @@ MonoBehaviour:
   _title: Tomato
   _description: Replenishes 7 health
   _maxItemInSlots: 3
-  _spriteIcon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  _spriteIcon: {fileID: 21300000, guid: e15b37ad117d7454194594827a5e4e87, type: 3}

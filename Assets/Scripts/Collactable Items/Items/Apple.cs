@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class Apple : IInventoryItem
 {
-	public Apple(IInventoryItemInfo info, IInventoryItemState state)
+	public Apple(IInventoryItemInfo info)
 	{
 		Info = info;
-		State = state;
+		State = new InventoryItemState();
 	}
 
 	public IInventoryItemInfo Info { get; }
@@ -19,8 +19,8 @@ public class Apple : IInventoryItem
 
 	public IInventoryItem Clone()
 	{
-		Apple newApple = new Apple(Info, State);
-		newApple.State.IsEquipped = false;
+		Apple newApple = new Apple(Info);
+		newApple.State.Amount = State.Amount;
 		return newApple;
 	}
 }
