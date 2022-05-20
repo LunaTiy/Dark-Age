@@ -127,7 +127,7 @@ public class Inventory : IInventory
 		}
 	}
 
-	private bool TryAddToSlot(object sender, IInventorySlot slot, IInventoryItem item)
+	public bool TryAddToSlot(object sender, IInventorySlot slot, IInventoryItem item)
 	{
 		bool isFits = slot.Amount + item.State.Amount <= item.Info.MaxItemInSlots;
 

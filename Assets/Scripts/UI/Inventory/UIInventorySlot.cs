@@ -11,10 +11,15 @@ public class UIInventorySlot : UISlot
 
 	public IInventorySlot Slot { get; private set; }
 
-	private void Awake()
+	private void Start()
 	{
 		_uiInventory = GetComponentInParent<UIInventory>();
 		_inventory = _uiInventory.Inventory;
+	}
+
+	public void SetSlot(IInventorySlot slot)
+	{
+		Slot = slot;
 	}
 
 	public override void OnDrop(PointerEventData eventData)
