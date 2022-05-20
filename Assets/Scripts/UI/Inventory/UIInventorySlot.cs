@@ -1,15 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class UIInventorySlot : UISlot
 {
-	[SerializeField] private UIInventoryItem _uiInventoryItem;
+	[SerializeField] private UIInventoryItem _item;
+	
 	private UIInventory _uiInventory;
 	private Inventory _inventory;
 
-	public IInventorySlot Slot { get; private set; }
+    public IInventorySlot Slot { get; private set; }
 
 	private void Start()
 	{
@@ -22,21 +21,16 @@ public class UIInventorySlot : UISlot
 		Slot = slot;
 	}
 
-	public override void OnDrop(PointerEventData eventData)
+	public void RefreshSlot()
 	{
-		UIInventoryItem sourceItemUI = eventData.pointerDrag.GetComponent<UIInventoryItem>();
-		UIInventorySlot sourceSlotUI = sourceItemUI.GetComponentInParent<UIInventorySlot>();
-		IInventorySlot sourceSlot = sourceSlotUI.Slot;
-
-		_inventory.TransitBetweenSlots(this, sourceSlot, Slot);
-
-		Refresh();
-		sourceSlotUI.Refresh();
+		_item.Refresh(Slot);
 	}
 
-	public void Refresh()
+	public override void OnDrop(PointerEventData eventData)
 	{
-		if (Slot != null)
-			_uiInventoryItem.Refresh(Slot);
+		UIInventoryItem draggedUIItem = eventData.pointerDrag.GetComponent<UIInventoryItem>();
+		IInventorySlot fromSlot = draggedUIItem.GetComponentInParent<UIInventorySlot>().Slot;
+
+		_inventory.TransitBetweenSlots(fromSlot, Slot);
 	}
 }

@@ -1,20 +1,67 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIInventory : MonoBehaviour
 {
-	[SerializeField] private int _amountCell = 12;
-	[SerializeField] InventoryItemInfo _appleInfo;
-	[SerializeField] InventoryItemInfo _tomatoInfo;
+	[SerializeField] private Character _target;
+	[SerializeField] private GameObject _prefabSlot;
 
-	private InventoryTester _inventoryTester;
-	public Inventory Inventory => _inventoryTester.Inventory;
+	private UIInventorySlot[] _uiSlots;
+	private GridLayoutGroup _grid;
 
-	private void Awake()
+	public Inventory Inventory => _target.Inventory;
+
+	private void Start()
 	{
-		UIInventorySlot[] uiSlots = GetComponentsInChildren<UIInventorySlot>();
-		_inventoryTester = new InventoryTester(_appleInfo, _tomatoInfo, uiSlots);
-		_inventoryTester.FillSlots();
+		_grid = GetComponent<GridLayoutGroup>();
+		InstantiateSlots();
+
+		_uiSlots = GetComponentsInChildren<UIInventorySlot>();
+		InstallationInventory();
+	}
+
+	private void OnEnable()
+	{
+		Inventory.OnInventoryStateChanged += InventoryStateChanged;
+		InventoryStateChanged();
+	}
+
+	private void OnDisable()
+	{
+		_target.Inventory.OnInventoryStateChanged -= InventoryStateChanged;
+	}
+
+	private void InventoryStateChanged()
+	{
+		foreach(var slot in _uiSlots)
+			slot.RefreshSlot();
+	}
+
+	private void InstantiateSlots()
+	{
+		_grid.enabled = true;
+
+		for (int i = 0; i < Inventory.Capacity; i++)
+			Instantiate(_prefabSlot, transform);
+
+		Invoke("DisableGrid", 1f);
+	}
+
+	private void DisableGrid()
+	{
+		_grid.enabled = false;
+	}
+
+	private void InstallationInventory()
+	{
+		IInventorySlot[] abstractSlots = Inventory.GetAllSlots();
+
+		for (int i = 0; i < Inventory.Capacity; i++)
+		{
+			_uiSlots[i].SetSlot(abstractSlots[i]);
+			_uiSlots[i].RefreshSlot();
+		}
 	}
 }

@@ -5,40 +5,32 @@ using UnityEngine.UI;
 
 public class UIInventoryItem : UIItem
 {
-	[SerializeField] private Image _imageIcon;
-	[SerializeField] private Text _textAmount;
+    [SerializeField] private Image _imageIcon;
+    [SerializeField] private Text _textAmount;
 
-	public IInventoryItem Item { get; private set; }
-
-	public void Refresh(IInventorySlot slot)
+    public void Refresh(IInventorySlot slot)
 	{
-		if(slot.IsEmpty)
+		if (slot.IsEmpty)
 		{
-			Cleanup();
+			_imageIcon.enabled = false;
+			_textAmount.enabled = false;
+
 			return;
 		}
 
-		SetItem(slot.Item);
-	}
+		var item = slot.Item;
 
-	private void Cleanup()
-	{
-		_imageIcon.gameObject.SetActive(false);
-		_textAmount.gameObject.SetActive(false);
-	}
+        _imageIcon.sprite = item.Info.SpriteIcon;
+		_imageIcon.enabled = true;
 
-	private void SetItem(IInventoryItem item)
-	{
-		Item = item;
-
-		_imageIcon.gameObject.SetActive(true);
-		_imageIcon.sprite = Item.Info.SpriteIcon;
-
-		if(Item.State.Amount > 1)
+		if(item.State.Amount > 1)
 		{
-			_textAmount.gameObject.SetActive(true);
-			_textAmount.text = $"x{Item.State.Amount}";
+			_textAmount.text = $"x{item.State.Amount}";
+			_textAmount.enabled = true;
 		}
-
+		else
+		{
+			_textAmount.enabled = false;
+		}
 	}
 }
