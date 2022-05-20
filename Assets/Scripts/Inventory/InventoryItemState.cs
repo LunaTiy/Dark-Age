@@ -1,17 +1,15 @@
-﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-[Serializable]
-class InventoryItemState : IInventoryItemState
+public class InventoryItemState : IInventoryItemState
 {
-	private int _amount;
-	private bool _isEquipped;
-
 	public InventoryItemState()
 	{
-		_amount = 0;
-		_isEquipped = false;
+		Amount = 0;
+		IsEquipped = false;
 	}
 
-	public int Amount { get => _amount; set => _amount = value; }
-	public bool IsEquipped { get => _isEquipped; set => _isEquipped = value; }
+	public int Amount { get; set; }
+	public bool IsEquipped { get; set; }
 }
