@@ -11,11 +11,19 @@ public class Character : MonoBehaviour
 	public event Action<int, int> HealthChanged;
 	public event Action<int, int> ManaChanged;
 
+	[Header("Properties")]
+	[SerializeField] private int _capacityInventory = 12;
+
+	private Inventory _inventory;
 	private Characteristics _characteristics;	
 	private Stats _passives;
 
-	private void Start()
+	public Inventory Inventory => _inventory;
+
+	private void Awake()
 	{
+		_inventory = new Inventory(_capacityInventory);
+
 		_characteristics = new Characteristics();
 
 		_passives = new Stats(new List<Stat> { 
