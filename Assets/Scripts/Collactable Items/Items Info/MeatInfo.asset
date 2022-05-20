@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39b223e6245bdc34c9b20aad6955decb, type: 3}
-  m_Name: AppleInfo
+  m_Name: MeatInfo
   m_EditorClassIdentifier: 
-  _id: Apple
-  _title: Red apple
-  _description: Juicy red apple. Replenishes 5 health
-  _maxItemsInSlot: 5
-  _spriteIcon: {fileID: 21300000, guid: 1b4b7c7d5dbae3942b6c275421be308b, type: 3}
+  _id: Meat
+  _title: Meat
+  _description: Pretty good meat as it may seem. Restores 10 health
+  _maxItemsInSlot: 3
+  _spriteIcon: {fileID: 0}

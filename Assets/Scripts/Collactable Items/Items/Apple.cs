@@ -15,8 +15,6 @@ public class Apple : IInventoryItem
 
 	public IInventoryItemState State { get; }
 
-	public Type Type => GetType();
-
 	public IInventoryItem Clone()
 	{
 		Apple newApple = new Apple(Info);
