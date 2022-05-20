@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public interface IInventoryItemInfo
@@ -7,6 +5,6 @@ public interface IInventoryItemInfo
 	string Id { get; }
 	string Title { get; }
 	string Description { get; }
-	int MaxItemInSlots { get; }
+	int MaxItemsInSlot { get; }
 	Sprite SpriteIcon { get; }
 }
