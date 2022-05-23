@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95a53f78a0ef2b34ea32e0c30c24afa7, type: 3}
+  m_Name: PoisoningStatInfo
+  m_EditorClassIdentifier: 
+  _title: Poisoning
+  _description: Periodic loss of health
+  _icon: {fileID: 21300000, guid: 6fd499d661a94e04c97761cc7813308d, type: 3}
