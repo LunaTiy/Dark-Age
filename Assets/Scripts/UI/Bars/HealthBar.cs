@@ -12,12 +12,12 @@ public class HealthBar : MonoBehaviour
 
 	private void OnEnable()
 	{
-		_target.HealthChanged += ShowHealthBar;
+		_target.OnHealthChanged += ShowHealthBar;
 	}
 
 	private void OnDisable()
 	{
-		_target.HealthChanged -= ShowHealthBar;
+		_target.OnHealthChanged -= ShowHealthBar;
 	}
 
 	public void ShowHealthBar(int value, int maxValue)

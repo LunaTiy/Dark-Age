@@ -8,8 +8,8 @@ public class Character : MonoBehaviour
 {
 	[Header("Events")]
 	[SerializeField] private UnityEvent<float> _takedDamage;
-	public event Action<int, int> HealthChanged;
-	public event Action<int, int> ManaChanged;
+	public event Action<int, int> OnHealthChanged;
+	public event Action<int, int> OnManaChanged;
 
 	[Header("Properties")]
 	[SerializeField] private int _capacityInventory = 12;
@@ -19,17 +19,13 @@ public class Character : MonoBehaviour
 	private Stats _passives;
 
 	public Inventory Inventory => _inventory;
+	public Stats Passives => _passives;
 
 	private void Awake()
 	{
 		_inventory = new Inventory(_capacityInventory);
-
 		_characteristics = new Characteristics();
-
-		_passives = new Stats(new List<Stat> { 
-			new StatHealthRegeneration(1, -1),
-			new StatManaRegeneration(1, -1),
-		});
+		_passives = new Stats();
 
 		StartCoroutine(InfluencePassives());
 	}
@@ -42,8 +38,8 @@ public class Character : MonoBehaviour
 		{
 			_passives.Influence(_characteristics);
 
-			HealthChanged?.Invoke(_characteristics.Health, _characteristics.MaxHealth);
-			ManaChanged?.Invoke(_characteristics.Mana, _characteristics.MaxMana);
+			OnHealthChanged?.Invoke(_characteristics.Health, _characteristics.MaxHealth);
+			OnManaChanged?.Invoke(_characteristics.Mana, _characteristics.MaxMana);
 
 			yield return waitForSeconds;
 		}
@@ -52,16 +48,8 @@ public class Character : MonoBehaviour
 	public void TakeDamage(int damage)
 	{
 		_characteristics.Health -= damage;
-		HealthChanged?.Invoke(_characteristics.Health, _characteristics.MaxHealth);
+		OnHealthChanged?.Invoke(_characteristics.Health, _characteristics.MaxHealth);
 
 		_takedDamage?.Invoke(0.2f);
-	}
-
-	public void GetPassiveEffect(Stat stat)
-	{
-		if (stat == null)
-			return;
-
-		_passives.AddStat(stat);
 	}
 }

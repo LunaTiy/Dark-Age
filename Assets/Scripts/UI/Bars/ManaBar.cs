@@ -12,12 +12,12 @@ public class ManaBar : MonoBehaviour
 
 	private void OnEnable()
 	{
-		_target.ManaChanged += ShowManaBar;
+		_target.OnManaChanged += ShowManaBar;
 	}
 
 	private void OnDisable()
 	{
-		_target.ManaChanged -= ShowManaBar;
+		_target.OnManaChanged -= ShowManaBar;
 	}
 
 	public void ShowManaBar(int value, int maxValue)
