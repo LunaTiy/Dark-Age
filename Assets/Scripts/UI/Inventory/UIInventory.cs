@@ -13,7 +13,7 @@ public class UIInventory : MonoBehaviour
 
 	public Inventory Inventory => _target.Inventory;
 
-	private void Start()
+	private void Awake()
 	{
 		_grid = GetComponent<GridLayoutGroup>();
 		InstantiateSlots();
