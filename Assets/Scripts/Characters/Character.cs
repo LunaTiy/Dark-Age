@@ -8,8 +8,8 @@ public class Character : MonoBehaviour
 {
 	[Header("Events")]
 	[SerializeField] private UnityEvent<float> _takedDamage;
-	public event Action<int, int> OnHealthChanged;
-	public event Action<int, int> OnManaChanged;
+	public event Action OnHealthChanged;
+	public event Action OnManaChanged;
 
 	[Header("Properties")]
 	[SerializeField] private int _capacityInventory = 12;
@@ -19,6 +19,7 @@ public class Character : MonoBehaviour
 	private Stats _passives;
 
 	public Inventory Inventory => _inventory;
+	public Characteristics Characteristics => _characteristics;
 	public Stats Passives => _passives;
 
 	private void Awake()
@@ -32,14 +33,14 @@ public class Character : MonoBehaviour
 
 	private IEnumerator InfluencePassives()
 	{
-		var waitForSeconds = new WaitForSeconds(2f);
+		var waitForSeconds = new WaitForSeconds(1f);
 
 		while (true)
 		{
 			_passives.Influence(_characteristics);
 
-			OnHealthChanged?.Invoke(_characteristics.Health, _characteristics.MaxHealth);
-			OnManaChanged?.Invoke(_characteristics.Mana, _characteristics.MaxMana);
+			OnHealthChanged?.Invoke();
+			OnManaChanged?.Invoke();
 
 			yield return waitForSeconds;
 		}
@@ -48,7 +49,7 @@ public class Character : MonoBehaviour
 	public void TakeDamage(int damage)
 	{
 		_characteristics.Health -= damage;
-		OnHealthChanged?.Invoke(_characteristics.Health, _characteristics.MaxHealth);
+		OnHealthChanged?.Invoke();
 
 		_takedDamage?.Invoke(0.2f);
 	}

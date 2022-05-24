@@ -10,19 +10,25 @@ public class ManaBar : MonoBehaviour
 	[SerializeField] private Image _fillArea;
 	[SerializeField] private Text _text;
 
+	private Characteristics Characteristics => _target.Characteristics;
+
 	private void OnEnable()
 	{
-		_target.OnManaChanged += ShowManaBar;
+		_target.OnManaChanged += ManaChanged;
+		ManaChanged();
 	}
 
 	private void OnDisable()
 	{
-		_target.OnManaChanged -= ShowManaBar;
+		_target.OnManaChanged -= ManaChanged;
 	}
 
-	public void ShowManaBar(int value, int maxValue)
+	public void ManaChanged()
 	{
-		_text.text = $"{value} / {maxValue}";
-		_fillArea.fillAmount = (float) value / maxValue;
+		int mana = Characteristics.Mana;
+		int maxMana = Characteristics.MaxMana;
+
+		_text.text = $"{mana} / {maxMana}";
+		_fillArea.fillAmount = (float)mana / maxMana;
 	}
 }
