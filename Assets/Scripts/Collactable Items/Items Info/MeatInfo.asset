@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39b223e6245bdc34c9b20aad6955decb, type: 3}
+  m_Script: {fileID: 11500000, guid: 16c695688320cc849a59b2b81b8e2ea1, type: 3}
   m_Name: MeatInfo
   m_EditorClassIdentifier: 
-  _id: Meat
-  _title: Meat
-  _description: Pretty good meat as it may seem. Restores 10 health
-  _maxItemsInSlot: 3
+  _id: 
+  _title: 
+  _description: 
+  _maxItemsInSlot: 0
+  _value: 0
   _spriteIcon: {fileID: 0}

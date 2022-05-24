@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39b223e6245bdc34c9b20aad6955decb, type: 3}
+  m_Script: {fileID: 11500000, guid: 16c695688320cc849a59b2b81b8e2ea1, type: 3}
   m_Name: TomatoInfo
   m_EditorClassIdentifier: 
   _id: Tomato
-  _title: Tomato
-  _description: Replenishes 7 health
-  _maxItemsInSlot: 7
+  _title: Big tomato
+  _description: Restore health
+  _maxItemsInSlot: 5
+  _value: 8
   _spriteIcon: {fileID: 21300000, guid: 1f239883905cb8243a008d46ef2151dd, type: 3}
