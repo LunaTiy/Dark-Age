@@ -43,8 +43,6 @@ public class FollowableCamera : MonoBehaviour
 
 				_obstacles.Add(obstacleMesh);
 				obstacleMesh.enabled = false;
-
-				Debug.Log($"Raycast obstacle: {obstacle.name}");
 			}
 		}
 		else
