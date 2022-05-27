@@ -14,13 +14,13 @@ public class HealthBar : MonoBehaviour
 
 	private void OnEnable()
 	{
-		_target.OnHealthChanged += HealthChanged;
+		_target.Characteristics.OnHealthChanged += HealthChanged;
 		HealthChanged();
 	}
 
 	private void OnDisable()
 	{
-		_target.OnHealthChanged -= HealthChanged;
+		_target.Characteristics.OnHealthChanged -= HealthChanged;
 	}
 
 	public void HealthChanged()

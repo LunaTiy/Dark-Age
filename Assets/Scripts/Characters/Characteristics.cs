@@ -2,6 +2,9 @@
 
 public class Characteristics
 {
+	public event Action OnHealthChanged;
+	public event Action OnManaChanged;
+
 	private int _maxHealth;
 	private int _health;
 	private int _maxMana;
@@ -29,6 +32,8 @@ public class Characteristics
 		set
 		{
 			if (value > 0) _maxHealth = value;
+
+			OnHealthChanged?.Invoke();
 		}
 	}
 	public int Health
@@ -38,6 +43,8 @@ public class Characteristics
 		{
 			if (value >= 0 && value <= _maxHealth) _health = value;
 			else if (value < 0) _health = 0;
+
+			OnHealthChanged?.Invoke();
 		}
 	}
 	public int MaxMana
@@ -46,6 +53,8 @@ public class Characteristics
 		set
 		{
 			if (value > 0) _maxMana = value;
+
+			OnManaChanged?.Invoke();
 		}
 	}
 	public int Mana
@@ -55,6 +64,8 @@ public class Characteristics
 		{
 			if (value >= 0 && value <= _maxMana) _mana = value;
 			else if (value < 0) _mana = 0;
+
+			OnManaChanged?.Invoke();
 		}
 	}
 }

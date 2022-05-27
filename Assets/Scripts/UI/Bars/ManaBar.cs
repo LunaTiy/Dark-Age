@@ -14,13 +14,13 @@ public class ManaBar : MonoBehaviour
 
 	private void OnEnable()
 	{
-		_target.OnManaChanged += ManaChanged;
+		_target.Characteristics.OnManaChanged += ManaChanged;
 		ManaChanged();
 	}
 
 	private void OnDisable()
 	{
-		_target.OnManaChanged -= ManaChanged;
+		_target.Characteristics.OnManaChanged -= ManaChanged;
 	}
 
 	public void ManaChanged()
