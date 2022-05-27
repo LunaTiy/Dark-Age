@@ -6,5 +6,6 @@ public interface IInventoryItemInfo
 	string Title { get; }
 	string Description { get; }
 	int MaxItemsInSlot { get; }
+	int Value { get; }
 	Sprite SpriteIcon { get; }
 }

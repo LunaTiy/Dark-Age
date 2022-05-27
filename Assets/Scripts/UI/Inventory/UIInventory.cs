@@ -12,6 +12,7 @@ public class UIInventory : MonoBehaviour
 	private GridLayoutGroup _grid;
 
 	public Inventory Inventory => _target.Inventory;
+	public Character Character => _target;
 
 	private void Awake()
 	{

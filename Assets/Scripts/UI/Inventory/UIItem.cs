@@ -9,7 +9,7 @@ public class UIItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHa
 	private Canvas _canvas;
 	private CanvasGroup _canvasGroup;
 
-	private void Start()
+	private void Awake()
 	{
 		_rectTransform = GetComponent<RectTransform>();
 		_canvas = GetComponentInParent<Canvas>();

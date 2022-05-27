@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16c695688320cc849a59b2b81b8e2ea1, type: 3}
+  m_Script: {fileID: 11500000, guid: 39b223e6245bdc34c9b20aad6955decb, type: 3}
   m_Name: AppleInfo
   m_EditorClassIdentifier: 
   _id: Apple
   _title: Red apple
-  _description: Restrores health
+  _description: Restore health
   _maxItemsInSlot: 5
   _value: 5
   _spriteIcon: {fileID: 21300000, guid: 1b4b7c7d5dbae3942b6c275421be308b, type: 3}

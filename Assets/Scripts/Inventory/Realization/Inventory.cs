@@ -122,6 +122,7 @@ public class Inventory : IInventory
 			if (item.Info.MaxItemsInSlot >= item.State.Amount)
 			{
 				slot.SetItem(item);
+				item.OnItemUsed += UsedItem;
 				OnInventoryStateChanged?.Invoke();
 
 				return true;
@@ -132,6 +133,7 @@ public class Inventory : IInventory
 				newItem.State.Amount = item.Info.MaxItemsInSlot;
 
 				slot.SetItem(newItem);
+				item.OnItemUsed += UsedItem;
 				item.State.Amount -= item.Info.MaxItemsInSlot;
 			}
 		}
@@ -201,5 +203,10 @@ public class Inventory : IInventory
 			OnInventoryStateChanged?.Invoke();
 			return;
 		}
+	}
+
+	private void UsedItem()
+	{
+		OnInventoryStateChanged?.Invoke();
 	}
 }

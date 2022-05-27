@@ -1,10 +1,10 @@
 using System;
 
-public class Apple : IInventoryItem
+public class Lemon : IInventoryItem
 {
 	public event Action OnItemUsed;
 
-	public Apple(IInventoryItemInfo info)
+	public Lemon(IInventoryItemInfo info)
 	{
 		Info = info;
 		State = new InventoryItemState();
@@ -16,14 +16,15 @@ public class Apple : IInventoryItem
 
 	public IInventoryItem Clone()
 	{
-		Apple newApple = new Apple(Info);
-		newApple.State.Amount = State.Amount;
-		return newApple;
+		Lemon newTomato = new Lemon(Info);
+		newTomato.State.Amount = State.Amount;
+		return newTomato;
 	}
 
 	public void Use(Character character)
 	{
 		character.Characteristics.Health += Info.Value;
+
 		OnItemUsed?.Invoke();
 	}
 }
