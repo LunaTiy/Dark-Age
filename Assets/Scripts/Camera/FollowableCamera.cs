@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class FollowableCamera : MonoBehaviour
 {
+	[Header("Camera properties")]
     [SerializeField] private Transform _targetTransform;
 	[SerializeField] private Vector3 _offset = new Vector3(0, 7, -7);
 	[SerializeField] private float _speed = 2f;
-	[Space]
+	
+	[Header("Obstacles properies")]
 	[SerializeField] private LayerMask _masks;
 
-	private List<MeshRenderer> _obstacles;
+	private List<ObstacleSetMaterial> _obstacles;
 
 	private void Start()
 	{
-		_obstacles = new List<MeshRenderer>();
+		_obstacles = new List<ObstacleSetMaterial>();
 	}
 
 	private void Update()
@@ -39,16 +41,20 @@ public class FollowableCamera : MonoBehaviour
 			foreach(RaycastHit hit in raycastHits)
 			{
 				GameObject obstacle = hit.collider.gameObject;
-				MeshRenderer obstacleMesh = obstacle.GetComponent<MeshRenderer>();
 
-				_obstacles.Add(obstacleMesh);
-				obstacleMesh.enabled = false;
+				if (obstacle.TryGetComponent<ObstacleSetMaterial>(out ObstacleSetMaterial obstacleSetMaterial))
+				{
+					_obstacles.Add(obstacleSetMaterial);
+					obstacleSetMaterial.SetReplacementMaterial();
+				}				
 			}
 		}
 		else
 		{
-			foreach (var obstacleMesh in _obstacles)
-				obstacleMesh.enabled = true;
+			if (_obstacles.Count == 0) return;
+
+			foreach(ObstacleSetMaterial obstacle in _obstacles)
+				obstacle.ResetMaterial();
 
 			_obstacles.Clear();
 		}
