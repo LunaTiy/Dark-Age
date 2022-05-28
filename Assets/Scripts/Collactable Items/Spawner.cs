@@ -18,10 +18,10 @@ public class Spawner : MonoBehaviour
 	{
 		while (true)
 		{
-			if(transform.childCount <= _maxSpawnerItems)
-				Instantiate(_prefab, transform);
-
 			yield return new WaitForSeconds(Random.Range(_minTime, _maxTime));
+
+			if (transform.childCount <= _maxSpawnerItems)
+				Instantiate(_prefab, transform);
 		}
 	}
 }

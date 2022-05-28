@@ -1,66 +1,175 @@
 fileFormatVersion: 2
 guid: 3f4d2118f6a772542a1635ef5bfa6982
-timeCreated: 1502953100
-licenseType: Store
 ModelImporter:
-  serializedVersion: 21
-  fileIDToRecycleName:
-    100000: apple
-    100002: avocado
-    100004: banana
-    100006: cherries
-    100008: //RootNode
-    100010: lemon
-    100012: peach
-    100014: peanut
-    100016: pear
-    100018: strawberry
-    100020: watermelon
-    400000: apple
-    400002: avocado
-    400004: banana
-    400006: cherries
-    400008: //RootNode
-    400010: lemon
-    400012: peach
-    400014: peanut
-    400016: pear
-    400018: strawberry
-    400020: watermelon
-    2300000: apple
-    2300002: avocado
-    2300004: banana
-    2300006: cherries
-    2300008: lemon
-    2300010: peach
-    2300012: peanut
-    2300014: pear
-    2300016: strawberry
-    2300018: watermelon
-    3300000: apple
-    3300002: avocado
-    3300004: banana
-    3300006: cherries
-    3300008: lemon
-    3300010: peach
-    3300012: peanut
-    3300014: pear
-    3300016: strawberry
-    3300018: watermelon
-    4300000: avocado
-    4300002: lemon
-    4300004: strawberry
-    4300006: pear
-    4300008: watermelon
-    4300010: peach
-    4300012: cherries
-    4300014: banana
-    4300016: apple
-    4300018: peanut
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: apple
+  - first:
+      1: 100002
+    second: avocado
+  - first:
+      1: 100004
+    second: banana
+  - first:
+      1: 100006
+    second: cherries
+  - first:
+      1: 100008
+    second: //RootNode
+  - first:
+      1: 100010
+    second: lemon
+  - first:
+      1: 100012
+    second: peach
+  - first:
+      1: 100014
+    second: peanut
+  - first:
+      1: 100016
+    second: pear
+  - first:
+      1: 100018
+    second: strawberry
+  - first:
+      1: 100020
+    second: watermelon
+  - first:
+      4: 400000
+    second: apple
+  - first:
+      4: 400002
+    second: avocado
+  - first:
+      4: 400004
+    second: banana
+  - first:
+      4: 400006
+    second: cherries
+  - first:
+      4: 400008
+    second: //RootNode
+  - first:
+      4: 400010
+    second: lemon
+  - first:
+      4: 400012
+    second: peach
+  - first:
+      4: 400014
+    second: peanut
+  - first:
+      4: 400016
+    second: pear
+  - first:
+      4: 400018
+    second: strawberry
+  - first:
+      4: 400020
+    second: watermelon
+  - first:
+      23: 2300000
+    second: apple
+  - first:
+      23: 2300002
+    second: avocado
+  - first:
+      23: 2300004
+    second: banana
+  - first:
+      23: 2300006
+    second: cherries
+  - first:
+      23: 2300008
+    second: lemon
+  - first:
+      23: 2300010
+    second: peach
+  - first:
+      23: 2300012
+    second: peanut
+  - first:
+      23: 2300014
+    second: pear
+  - first:
+      23: 2300016
+    second: strawberry
+  - first:
+      23: 2300018
+    second: watermelon
+  - first:
+      33: 3300000
+    second: apple
+  - first:
+      33: 3300002
+    second: avocado
+  - first:
+      33: 3300004
+    second: banana
+  - first:
+      33: 3300006
+    second: cherries
+  - first:
+      33: 3300008
+    second: lemon
+  - first:
+      33: 3300010
+    second: peach
+  - first:
+      33: 3300012
+    second: peanut
+  - first:
+      33: 3300014
+    second: pear
+  - first:
+      33: 3300016
+    second: strawberry
+  - first:
+      33: 3300018
+    second: watermelon
+  - first:
+      43: 4300000
+    second: avocado
+  - first:
+      43: 4300002
+    second: lemon
+  - first:
+      43: 4300004
+    second: strawberry
+  - first:
+      43: 4300006
+    second: pear
+  - first:
+      43: 4300008
+    second: watermelon
+  - first:
+      43: 4300010
+    second: peach
+  - first:
+      43: 4300012
+    second: cherries
+  - first:
+      43: 4300014
+    second: banana
+  - first:
+      43: 4300016
+    second: apple
+  - first:
+      43: 4300018
+    second: peanut
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 2629bdb5f95d3aa4c8ff0bbc8840c7a5, type: 2}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
-    materialSearch: 1
+    materialSearch: 2
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -73,6 +182,8 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -84,22 +195,34 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 20
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
@@ -107,10 +230,13 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -120,14 +246,17 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 20
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 0
   humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   additionalBone: 0
   userData: 
   assetBundleName: 

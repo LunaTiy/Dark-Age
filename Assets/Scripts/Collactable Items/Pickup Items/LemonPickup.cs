@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ApplePickup : MonoBehaviour, IItemPickup
+public class LemonPickup : MonoBehaviour, IItemPickup
 {
 	[SerializeField] private InventoryItemInfo _info;
 	public IInventoryItemInfo Info => _info;
@@ -8,8 +8,8 @@ public class ApplePickup : MonoBehaviour, IItemPickup
 
 	private void Start()
 	{
-		Item = new Apple(Info);
-		Item.State.Amount = Random.Range(1, 4);
+		Item = new Lemon(Info);
+		Item.State.Amount = Random.Range(1, 3);
 	}
 
 	private void OnTriggerEnter(Collider other)
